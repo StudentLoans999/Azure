@@ -1,0 +1,4 @@
+{
+  "fileUris": ["https://raw.githubusercontent.com/StudentLoans999/Azure/main/installIIS.ps1"],
+  "commandToExecute": "powershell.exe ./installIIS.ps1"
+}
