@@ -28,7 +28,7 @@ spec:
               readOnly: false
               
               # 1. Set variables for the storage account name and the access key:
-              # $AKS_STORAGE_ACCOUNT_NAME="newstore1"
+              # $AKS_STORAGE_ACCOUNT_NAME="newstore14"
               # $STORAGE_KEY="y1JwBQi22npqyXPbRR+mR+sde6H603COq+dxZXUkJh6ektDrWP0ZJy7gAGXdPJVI/+Ap2ud5XaM6aXG4jVXnxw=="
               # 2. Then create a secret in the Kubernetes cluster:
               # kubectl create secret generic azure-secret --from-literal=azurestorageaccountname=$AKS_STORAGE_ACCOUNT_NAME --from-literal=azurestorageaccountkey=$STORAGE_KEY
