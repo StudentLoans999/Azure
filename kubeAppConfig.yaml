@@ -17,4 +17,5 @@ spec:
         image: nginx
         ports:
         - containerPort: 80
+        
         # Used for deploying Kubernetes by Az CLI (this is the application configuration file)
