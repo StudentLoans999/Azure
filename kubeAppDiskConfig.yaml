@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - name: my-image
+        volumeMounts:
+          - name: storage
+            mountPath: /mnt/disk1
+        image: nginx
+        ports:
+        - containerPort: 80
+      volumes:
+          - name: storage
+            azureDisk:
+              kind: Managed
+              diskName: clusterdisk
+              diskURI: /subscriptions/20c6eec9-2d80-4700-b0f6-4fde5
+              
+              # First, get cluster credentials: az aks get-credentials --resource-group newRG --name demoCluster
+              # Then get RG that holds nodes of cluster: az aks show --resource-group newRG --name demoCluster --query nodeResourceGroup -o tsv
+              # Last, create a disk and change the RG: az disk create --resource-group MC_newRG_demoCluster_eastus --name clusterDisk --size-gb 20 --query id --output tsv
