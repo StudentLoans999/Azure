@@ -1,0 +1,25 @@
+apiVersion: 2019-12-01
+location: eastus
+name: demogroup
+properties:
+  containers:
+  - name: demoapp
+    properties:
+      image: nginx
+      resources:
+        requests:
+          cpu: 1
+          memoryInGb: 1.5
+      ports:
+      - port: 80
+  osType: Linux
+  ipAddress:
+    type: Public
+    ports:
+    - protocol: tcp
+      port: 80
+type: Microsoft.ContainerInstance/containerGroups
+
+# 1. You can use this file for the deployment of the container in the container group/instance
+# 2. Then execute the following command in Azure cloud shell to deploy the container group:
+# az container create --resource-group demoRG --file containerGroupDeployment.yaml
