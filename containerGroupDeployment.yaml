@@ -1,6 +1,6 @@
 apiVersion: 2019-12-01
 location: eastus
-name: demogroup
+name: demoRG
 properties:
   containers:
   - name: demoapp
