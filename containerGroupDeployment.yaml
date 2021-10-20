@@ -1,9 +1,9 @@
 apiVersion: 2019-12-01
 location: eastus
-name: demoRG
+name: nameofInstance
 properties:
   containers:
-  - name: demoapp
+  - name: nameofContainer
     properties:
       image: nginx
       resources:
