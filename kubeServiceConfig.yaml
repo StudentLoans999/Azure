@@ -8,3 +8,5 @@ spec:
   - port: 80
   selector:
     app: my-app
+    
+    # Used for deploying Kubernetes by Az CLI (this is the service configuration file)
