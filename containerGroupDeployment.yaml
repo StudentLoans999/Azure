@@ -20,6 +20,6 @@ properties:
       port: 80
 type: Microsoft.ContainerInstance/containerGroups
 
-# 1. You can use this file for the deployment of the container in the container group/instance
+# 1. You can use this file for the deployment of a container in the container group/instance
 # 2. Then execute the following command in Azure cloud shell to deploy the container group:
 # az container create --resource-group demoRG --file containerGroupDeployment.yaml
