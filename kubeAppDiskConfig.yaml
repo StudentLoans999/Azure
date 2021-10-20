@@ -24,8 +24,8 @@ spec:
           - name: storage
             azureDisk:
               kind: Managed
-              diskName: clusterdisk
-              diskURI: /subscriptions/20c6eec9-2d80-4700-b0f6-4fde5
+              diskName: clusterDisk
+              diskURI: /subscriptions/9f5b947b-a20e-4047-8bbb-77b695ba4cc2/resourceGroups/MC_newRG_demoCluster_eastus/providers/Microsoft.Compute/disks/clusterDisk
               
               # First, get cluster credentials: az aks get-credentials --resource-group newRG --name demoCluster
               # Then get RG that holds nodes of cluster: az aks show --resource-group newRG --name demoCluster --query nodeResourceGroup -o tsv
