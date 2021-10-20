@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - name: my-image
+        volumeMounts:
+          - name: storage
+            mountPath: /mnt/share
+        image: nginx
+        ports:
+        - containerPort: 80
+      volumes:
+          - name: storage
+            azureFile:
+              secretName: azure-secret
+              shareName: newshare
+              readOnly: false
+              
+              # 1. Set variables for the storage account name and the access key:
+              # $AKS_STORAGE_ACCOUNT_NAME="newstore40000"
+              # $STORAGE_KEY="y1JwBQi22npqyXPbRR+mR+sde6H603COq+dxZXUkJh6ektDrWP0ZJy7gAGXdPJVI/+Ap2ud5XaM6aXG4jVXnxw=="
+              # 2. Then create a secret in the Kubernetes cluster:
+              # kubectl create secret generic azure-secret --from-literal=azurestorageaccountname=$AKS_STORAGE_ACCOUNT_NAME --from-literal=azurestorageaccountkey=$STORAGE_KEY
+              # 3. Use this file for the deployment of a pod with the use of the file share
