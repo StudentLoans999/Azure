@@ -47,7 +47,7 @@ spec:
         # sudo docker tag nginx demoregistry1000.azurecr.io/nginx
         
         # 9. Push the image to the repository:
-        # sudo docker push appregistry1000.azurecr.io/nginx
+        # sudo docker push demoregistry1000.azurecr.io/nginx
         
         # 10. Use the commands to give Kubernetes permission to pull images from Container Registry:
         # $AKS_RESOURCE_GROUP="newRG"
