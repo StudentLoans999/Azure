@@ -43,7 +43,7 @@ spec:
         # 7. Login to your repository:
         # sudo az acr login --name demoregistry1000
         
-        # 8. Tag your repository:
+        # 8. Tag your image that is running on the VM:
         # sudo docker tag nginx demoregistry1000.azurecr.io/nginx
         
         # 9. Push the image to the repository:
