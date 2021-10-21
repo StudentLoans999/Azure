@@ -10,3 +10,4 @@ spec:
     app: my-app
     
     # Used for deploying Kubernetes by Az CLI (this is the service configuration file)
+    # Also used for Container Registry
