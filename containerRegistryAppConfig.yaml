@@ -17,3 +17,43 @@ spec:
         image: appregistry1000.azurecr.io/nginx
         ports:
         - containerPort: 80
+        
+        # 1. Pull nginx image from a registry from a Linux VM that has docker and nginx installed: 
+        # sudo docker pull nginx
+        
+        # 2. Install Azure CLI:
+        # curl -sL https://packages.microsoft.com/keys/microsoft.asc | \
+        # gpg --dearmor | \
+        # sudo tee /etc/apt/trusted.gpg.d/microsoft.asc.gpg > /dev/null
+        
+        # 3. Setup the repository:
+        # AZ_REPO=$(lsb_release -cs)
+        # echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | \
+        # sudo tee /etc/apt/sources.list.d/azure-cli.list
+        
+        # 4. Update the package index:
+        # sudo apt-get update
+        
+        # 5. Install Azure CLI:
+        # sudo apt-get install azure-cli
+        
+        # 6. Login into Azure:
+        # sudo az login
+        
+        # 7. Login to your repository:
+        # sudo az acr login --name demoregistry1000
+        
+        # 8. Tag your repository:
+        # sudo docker tag nginx demoregistry1000.azurecr.io/nginx
+        
+        # 9. Push the image to the repository:
+        # sudo docker push appregistry1000.azurecr.io/nginx
+        
+        # 10. Use the commands to give Kubernetes permission to pull images from Container Registry:
+        # $AKS_RESOURCE_GROUP="newRG"
+        # $AKS_CLUSTER_NAME="demoCluster"
+        # $ACR_RESOURCE_GROUP="newRG"
+        # $ACR_NAME="demoregistry1000"
+        # $CLIENT_ID=$(az aks show --resource-group $AKS_RESOURCE_GROUP --name $AKS_CLUSTER_NAME --query "servicePrincipalProfile.clientId" --output tsv)
+        # $ACR_ID=$(az acr show --name $ACR_NAME --resource-group $ACR_RESOURCE_GROUP --query "id" --output tsv)
+        # az role assignment create --assignee $CLIENT_ID --role acrpull --scope $ACR_ID
