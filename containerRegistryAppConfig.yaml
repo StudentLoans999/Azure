@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: my-image
-        image: appregistry1000.azurecr.io/nginx
+        image: demoregistry1000.azurecr.io/nginx
         ports:
         - containerPort: 80
         
