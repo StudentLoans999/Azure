@@ -1,3 +1,4 @@
+New-AZResourceGroup -Name newRG -Location "East US"
 $demosubnetConfig = New-AzVirtualNetworkSubnetConfig -Name default -AddressPrefix 10.3.0.0/24
 $vnet = New-AzVirtualNetwork -ResourceGroupName newRG -Location EastUS -Name newVnet -AddressPrefix 10.3.0.0/16 -Subnet $demosubnetConfig
 $demoip = New-AzPublicIpAddress -ResourceGroupName newRG -Location EastUS -Name "newIP" -AllocationMethod Dynamic
@@ -8,6 +9,7 @@ $cred = Get-Credential
 $vmConfig = New-AzVMConfig -VMName newVM -VMSize Standard_D2s_v3 | Set-AzVMOperatingSystem -Windows -ComputerName newVM -Credential $cred | Set-AzVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2016-Datacenter -Version latest | Add-AzVMNetworkInterface -Id $nic.Id
 New-AzVM -ResourceGroupName newRG -Location EastUS -VM $vmConfig
 
+# 0. Create a RG
 # 1. Create a subnet configuration
 # 2. Create a Vnet
 # 3. Create a Public IP address
