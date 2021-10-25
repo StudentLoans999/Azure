@@ -103,7 +103,7 @@
 					"osDisk": {
 						"name": "vmOSDisk",
 						"vhd": {
-							"uri": "[concat('http://diskstore2070.blob.core.windows.net/data/', variables('OSDiskName'), '.vhd')]"
+							"uri": "[concat('http://demodiskstore.blob.core.windows.net/data/', variables('OSDiskName'), '.vhd')]"
 						},
 						"caching": "ReadWrite",
 						"createOption": "FromImage"
