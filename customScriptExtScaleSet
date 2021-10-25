@@ -1,6 +1,6 @@
 $config = @{
-  "fileUris" = (,"https://storageact345.blob.core.windows.net/script/installIIS&HTML.ps1");
-  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File installIIS&HTML.ps1"
+  "fileUris" = (,"https://storageact345.blob.core.windows.net/script/installIISandHTML.ps1");
+  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File installIISandHTML.ps1"
 }
  
 $set = Get-AzVmss -ResourceGroupName "demoRG" -VMScaleSetName "demoScaleSet"
